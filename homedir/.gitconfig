@@ -178,7 +178,7 @@
 
 [branch]
     # Automatically set up pull to be --rebase
-    # autosetuprebase = always
+    autosetuprebase = always
 
 [credential]
     # cache creds (git help credential-cache)
