@@ -26,3 +26,12 @@ cd ~/.dotfiles;
 
 * Install [alfred](https://www.alfredapp.com/)
 * Install [spectacle](https://www.spectacleapp.com/)
+* Install [authy](https://authy.com/download/)
+
+
+## Adevinta specifics
+
+* Install [Jetbrains Toolbox](https://www.jetbrains.com/toolbox/)
+* Install viscosity
+* Install [royal tsx](https://www.royalapplications.com/ts/mac/download)
+* Install [google file stream](https://support.google.com/drive/answer/7329379)
