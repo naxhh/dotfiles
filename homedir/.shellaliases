@@ -6,6 +6,10 @@ alias gco='git checkout'
 alias ga='git add'
 alias gc='git commit'
 alias gs='git status -s'
+alias gb='git branch'
+alias gd='git diff'
+alias gp='git push origin HEAD'
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
 
 #############################
 # Utilities
