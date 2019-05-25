@@ -297,8 +297,9 @@ vnoremap <silent> <leader>es :EsformatterVisual<CR>
 " netrw (default installed alt for NERDTree)
 " more info: https://shapeshed.com/vim-netrw/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let loaded_netrwPlugin = 0
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3 " tre style directory listing
+" let g:netrw_liststyle = 3 " tre style directory listing
 "let g:netrw_browse_split = 2 " open files in new vertical split
 let g:netrw_browse_split = 4 " open file in previous window
 let g:netrw_altv = 1
