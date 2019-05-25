@@ -67,5 +67,8 @@ module.exports = {
     'instant-markdown-d',
     'npm-check-updates',
     'vtop'
+  ],
+  mas: [
+    'Amphetamine'
   ]
 };

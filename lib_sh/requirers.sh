@@ -96,3 +96,15 @@ function require_nvm() {
     fi
     ok
 }
+
+function require_mas() {
+    mas version > /dev/null
+    if [[ $? == 0 ]]; then
+        mas list | grep $1 > /dev/null
+
+        if [[ $? != 0 ]]; then
+            action "mas install $1"
+            mas install $(mas search $1 | cut -d ' ' -f4)
+        fi
+    fi
+}
