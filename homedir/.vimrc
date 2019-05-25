@@ -29,31 +29,31 @@ Plugin 'VundleVim/Vundle.vim'
 " Navigation (IDE frame)
 " Plugin 'scrooloose/nerdtree'
 " Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sensible'
-Plugin 'justinmk/vim-sneak'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-surround'
-Plugin 'dkprice/vim-easygrep'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-sensible'
+" Plugin 'justinmk/vim-sneak'
+" Plugin 'airblade/vim-gitgutter'
+" Plugin 'tpope/vim-surround'
+" Plugin 'dkprice/vim-easygrep'
 Plugin 'editorconfig/editorconfig-vim'
 " visual undo list
-Plugin 'sjl/gundo.vim'
+" Plugin 'sjl/gundo.vim'
 " Plugin 'majutsushi/tagbar'
 " markdown preview: opens browser with live reload when vim opens .md
-Plugin 'suan/vim-instant-markdown'
-Plugin 'godlygeek/tabular'
+" Plugin 'suan/vim-instant-markdown'
+" Plugin 'godlygeek/tabular'
 " language tools
-Plugin 'scrooloose/syntastic'
-Plugin 'millermedeiros/vim-esformatter'
-Plugin 'digitaltoad/vim-pug'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'millermedeiros/vim-esformatter'
+" Plugin 'digitaltoad/vim-pug'
 " Plugin 'elzr/vim-json'
 " Plugin 'SirVer/ultisnips'
-"Plugin 'sheerun/vim-polyglot'
+" Plugin 'sheerun/vim-polyglot'
 " plugins from http://vim-scripts.org/vim/scripts.html
-Plugin 'node.js'
-Plugin 'SuperTab'
+" Plugin 'node.js'
+" Plugin 'SuperTab'
 " Git plugin not hosted on GitHub
 " Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -67,7 +67,7 @@ Plugin 'SuperTab'
 " TypeScript
 " Plugin 'leafgarland/typescript-vim'
 " Vue.js
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
