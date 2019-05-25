@@ -12,23 +12,14 @@
 # When more specific variables of color.* are set, they always take precedence over this setting.
 # Defaults to false.
   ui = auto
-  # diff = auto
-  # status = auto
+  diff = auto
+  status = auto
   # branch = auto
 
 [color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-[color "status"]
-  added = green
-  changed = red
-  untracked = cyan
 
 [advice]
   statusHints = false
@@ -49,12 +40,13 @@
   #safecrlf = true
   editor = vim
   #editor = subl -w
+  whitespace = cr-at-eol
 
 [alias]
   # most commonly used
+  cleanup = "!git branch --merged | grep -v '^*' | grep -v 'master' | xargs -n 1 git branch -d"
+  update = !git checkout master && git pull origin master && git fetch -p && git cleanup
   upm = !git fetch upstream && git rebase upstream/master
-  # new standard to replace the deprecated git-up gem package:
-  up = pull --rebase --autostash
 
   # least used
   fixup = "!sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
