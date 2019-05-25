@@ -54,7 +54,6 @@ module.exports = {
     'macbreakz',
     'micro-snitch',
     'signal',
-    'sizeup',
     'slack',
     'the-unarchiver',
     'vlc',
