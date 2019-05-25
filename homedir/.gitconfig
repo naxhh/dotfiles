@@ -12,14 +12,9 @@
 # When more specific variables of color.* are set, they always take precedence over this setting.
 # Defaults to false.
   ui = auto
-  diff = auto
-  status = auto
+  # diff = auto
+  # status = auto
   # branch = auto
-
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
 
 [advice]
   statusHints = false
