@@ -52,3 +52,7 @@ unsetopt correct
 
 # run fortune on new terminal :)
 # fortune
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/ignacio.tolstoy/.sdkman"
+[[ -s "/Users/ignacio.tolstoy/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ignacio.tolstoy/.sdkman/bin/sdkman-init.sh"

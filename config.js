@@ -25,6 +25,7 @@ module.exports = {
     // https://github.com/jkbrzt/httpie
     'httpie',
     'jq',
+    'kafkacat',
     // Mac App Store CLI: https://github.com/mas-cli/mas
     'mas',
     // Install some other useful utilities like `sponge`

@@ -19,34 +19,6 @@ if [ $? -ne 0 ]; then
 
   # Keep-alive: update existing sudo time stamp until the script has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-  echo "Do you want me to setup this machine to allow you to run sudo without a password?\nPlease read here to see what I am doing:\nhttp://wiki.summercode.com/sudo_without_a_password_in_mac_os_x \n"
-
-  read -r -p "Make sudo passwordless? [y|N] " response
-
-  if [[ $response =~ (yes|y|Y) ]];then
-      if ! grep -q "#includedir /private/etc/sudoers.d" /etc/sudoers; then
-        echo '#includedir /private/etc/sudoers.d' | sudo tee -a /etc/sudoers > /dev/null
-      fi
-      echo -e "Defaults:$LOGNAME    !requiretty\n$LOGNAME ALL=(ALL) NOPASSWD:     ALL" | sudo tee /etc/sudoers.d/$LOGNAME
-      echo "You can now run sudo commands without password!"
-  fi
-fi
-
-# ###########################################################
-# /etc/hosts -- spyware/ad blocking
-# ###########################################################
-read -r -p "Overwrite /etc/hosts with the ad-blocking hosts file from someonewhocares.org? (from ./configs/hosts file) [y|N] " response
-if [[ $response =~ (yes|y|Y) ]];then
-    action "cp /etc/hosts /etc/hosts.backup"
-    sudo cp /etc/hosts /etc/hosts.backup
-    ok
-    action "cp ./configs/hosts /etc/hosts"
-    sudo cp ./configs/hosts /etc/hosts
-    ok
-    bot "Your /etc/hosts file has been updated. Last version is saved in /etc/hosts.backup"
-else
-    ok "skipped";
 fi
 
 # ###########################################################
@@ -120,34 +92,6 @@ if [[ $? = 0 ]]; then
     bot "looks like you are already using gnu-sed. woot!"
     sed -i 's/GITHUBEMAIL/'$email'/' ./homedir/.gitconfig
     sed -i 's/GITHUBUSER/'$githubuser'/' ./homedir/.gitconfig
-  fi
-fi
-
-# ###########################################################
-# Wallpaper
-# ###########################################################
-MD5_NEWWP=$(md5 img/wallpaper.jpg | awk '{print $4}')
-MD5_OLDWP=$(md5 /System/Library/CoreServices/DefaultDesktop.jpg | awk '{print $4}')
-if [[ "$MD5_NEWWP" != "$MD5_OLDWP" ]]; then
-  read -r -p "Do you want to use the project's custom desktop wallpaper? [y|N] " response
-  if [[ $response =~ (yes|y|Y) ]]; then
-    running "Set a custom wallpaper image"
-    # rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-    bot "I will backup system wallpapers in ~/.dotfiles/img/"
-    sudo cp /System/Library/CoreServices/DefaultDesktop.jpg img/DefaultDesktop.jpg > /dev/null 2>&1
-    sudo cp /Library/Desktop\ Pictures/El\ Capitan.jpg img/El\ Capitan.jpg > /dev/null 2>&1
-    sudo cp /Library/Desktop\ Pictures/Sierra.jpg img/Sierra.jpg > /dev/null 2>&1
-    sudo cp /Library/Desktop\ Pictures/Sierra\ 2.jpg img/Sierra\ 2.jpg > /dev/null 2>&1
-    sudo rm -f /System/Library/CoreServices/DefaultDesktop.jpg > /dev/null 2>&1
-    sudo rm -f /Library/Desktop\ Pictures/El\ Capitan.jpg > /dev/null 2>&1
-    sudo rm -f /Library/Desktop\ Pictures/Sierra.jpg > /dev/null 2>&1
-    sudo rm -f /Library/Desktop\ Pictures/Sierra\ 2.jpg > /dev/null 2>&1
-    sudo cp ./img/wallpaper.jpg /System/Library/CoreServices/DefaultDesktop.jpg;
-    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra.jpg;
-    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/Sierra\ 2.jpg;
-    sudo cp ./img/wallpaper.jpg /Library/Desktop\ Pictures/El\ Capitan.jpg;ok
-  else
-    ok "skipped"
   fi
 fi
 
@@ -249,6 +193,11 @@ if [[ $response =~ (y|yes|Y) ]]; then
   popd > /dev/null 2>&1
 fi
 
+if [[ -f "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]] && [[ ! -f "/usr/local/bin/subl" ]]; then
+  bot "Creating subl command"
+  ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+fi
+
 bot "VIM Setup"
 read -r -p "Do you want to install vim plugins now? [y|N] " response
 if [[ $response =~ (y|yes|Y) ]];then
@@ -281,21 +230,30 @@ if [[ $response =~ (y|yes|Y) ]];then
   ok
 fi
 
+bot "Installing NVM"
 
-# if [[ -d "/Library/Ruby/Gems/2.0.0" ]]; then
-#   running "Fixing Ruby Gems Directory Permissions"
-#   sudo chown -R $(whoami) /Library/Ruby/Gems/2.0.0
-#   ok
-# fi
-
-# node version manager
 require_brew nvm
-
-# nvm
 require_nvm stable
-
 # always pin versions (no surprises, consistent dev/build machines)
 npm config set save-exact true
+
+bot "Installing GVM"
+
+if ! [ -x "$(command -v gvm)" ]; then
+  bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+fi
+
+bot "Installing or upgrading Sdkman"
+
+if ! [ -x "$(command -v sdk)" ]; then
+  curl -s "https://get.sdkman.io" | bash
+else
+  sdk selfupdate force
+fi
+
+bot "Installing Pyenv"
+
+require_brew pyenv
 
 #####################################
 # Now we can switch to node.js mode
