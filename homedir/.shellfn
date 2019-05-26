@@ -126,3 +126,17 @@ function fo() {
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
+
+## If okta is installed creates tokens for a bunch of accounts
+function okta() {
+  echo Default
+  withokta aws default sts get-caller-identity
+  echo PRE
+  withokta aws pre sts get-caller-identity
+  echo PRO
+  withokta aws pro sts get-caller-identity
+  echo MICROMT-PRE
+  withokta aws micromt-pre sts get-caller-identity
+  echo MICROMT-PRO
+  withokta aws micromt-pro sts get-caller-identity
+}

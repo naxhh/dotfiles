@@ -43,7 +43,10 @@ module.exports = {
     'vim --with-client-server --with-override-system-vi',
     'watch',
     // Install wget with IRI support
-    'wget --enable-iri'
+    'wget --enable-iri',
+    // https://hub.github.com/
+    'hub',
+    'awscli'
   ],
   cask: [
     'docker',

@@ -6,6 +6,9 @@ export PATH=$PATH:.
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
+# Okta bin path
+export PATH=~/.okta/bin:$PATH
+
 # GO
 #export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
@@ -14,3 +17,4 @@ export PATH=/usr/local/bin:$PATH
 
 # The next line enables shell command completion for gcloud.
 #source "/Users/$(whoami)/Downloads/google-cloud-sdk/completion.zsh.inc"
+

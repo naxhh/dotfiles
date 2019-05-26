@@ -35,3 +35,8 @@ cd ~/.dotfiles;
 * Install viscosity
 * Install [royal tsx](https://www.royalapplications.com/ts/mac/download)
 * Install [google file stream](https://support.google.com/drive/answer/7329379)
+* Install KepassX (in drive)
+* Install and configure vpns (tunnelblick)
+* Configure Integra proxy
+* Configure gradle credentials
+* Install & configure okta cli
