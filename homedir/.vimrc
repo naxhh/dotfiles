@@ -306,7 +306,7 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25 " width of dir explorer
 augroup ProjectDrawer
   autocmd!
-  autocmd VimEnter * :Vexplore
+  " autocmd VimEnter * :Vexplore
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
