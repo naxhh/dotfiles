@@ -46,7 +46,10 @@ module.exports = {
     'wget --enable-iri',
     // https://hub.github.com/
     'hub',
-    'awscli'
+    'awscli',
+    // In order to install python 3.6 we need this, (https://github.com/jiansoung/issues-list/issues/13)
+    'zlib',
+    'sqlite'
   ],
   cask: [
     'docker',

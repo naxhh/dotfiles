@@ -57,5 +57,16 @@ unsetopt correct
 # fortune
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/ignacio.tolstoy/.sdkman"
-[[ -s "/Users/ignacio.tolstoy/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ignacio.tolstoy/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/Users/$(whoami)/.sdkman"
+[[ -s "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh"
+
+# Pyenv
+eval "$(pyenv init -)"
+
+# https://github.com/jiansoung/issues-list/issues/13
+# For compilers to find zlib you may need to set:
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+
+# For pkg-config to find zlib you may need to set:
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
