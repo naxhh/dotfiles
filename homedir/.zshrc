@@ -7,8 +7,8 @@ export ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir nvm vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status history time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm virtualenv)
 # colorcode test
 # for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
 POWERLEVEL9K_NVM_FOREGROUND='007'
@@ -33,7 +33,7 @@ export DISABLE_AUTO_TITLE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.dotfiles/oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(colorize compleat dirpersist autojump git gulp history cp)
+plugins=(colorize compleat dirpersist autojump git gulp history cp virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,6 +62,9 @@ export SDKMAN_DIR="/Users/$(whoami)/.sdkman"
 
 # Pyenv
 eval "$(pyenv init -)"
+
+# This breaks the theme for some reason...
+#[[ -s "/Users/ignacio.tolstoy/.gvm/scripts/gvm" ]] && source "/Users/ignacio.tolstoy/.gvm/scripts/gvm"
 
 # https://github.com/jiansoung/issues-list/issues/13
 # For compilers to find zlib you may need to set:

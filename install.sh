@@ -240,7 +240,7 @@ npm config set save-exact true
 bot "Installing GVM"
 
 if ! [ -x "$(command -v gvm)" ]; then
-  bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+  curl -sSL https://raw.githubusercontent.com/markeissler/gvm2/master/binscripts/gvm-installer | zsh
 fi
 
 bot "Installing or upgrading Sdkman"
