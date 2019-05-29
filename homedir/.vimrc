@@ -312,9 +312,10 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_html_tidy_quiet_messages = { "level": "warnings" }
 let g:syntastic_html_tidy_ignore_errors = [ '<template> is not recognized!' ]
