@@ -1,6 +1,10 @@
 #########################################
 # Utility Functions
 
+function kms.decrypt() {
+  aws kms decrypt --profile=$1 --ciphertext-blob fileb://<(echo "$2" | base64 -D) --output text --query Plaintext | base64 -D
+}
+
 # Create a new git repo with one README commit and CD into it
 function gitnr() { mkdir $1; cd $1; git init; touch README; git add README; git commit -mFirst-commit;}
 
