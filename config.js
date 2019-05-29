@@ -49,7 +49,9 @@ module.exports = {
     'awscli',
     // In order to install python 3.6 we need this, (https://github.com/jiansoung/issues-list/issues/13)
     'zlib',
-    'sqlite'
+    'sqlite',
+
+    'direnv'
   ],
   cask: [
     'docker',

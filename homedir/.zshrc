@@ -63,6 +63,9 @@ export SDKMAN_DIR="/Users/$(whoami)/.sdkman"
 # Pyenv
 eval "$(pyenv init -)"
 
+# Direnv
+eval "$("/usr/local/bin/direnv" export zsh)";
+
 # This breaks the theme for some reason...
 #[[ -s "/Users/ignacio.tolstoy/.gvm/scripts/gvm" ]] && source "/Users/ignacio.tolstoy/.gvm/scripts/gvm"
 
