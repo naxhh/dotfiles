@@ -68,6 +68,7 @@ module.exports = {
     'xquartz'
   ],
   gem: [
+    'travis'
   ],
   npm: [
     'eslint',
