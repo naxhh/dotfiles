@@ -17,7 +17,7 @@ module.exports = {
     'readline', // ensure gawk gets good readline
     'gawk',
     'gnupg',
-    'gnu-sed --with-default-names',
+    'gnu-sed',
     // upgrade grep so we can get things like inverted match (-v)
     'grep --with-default-names',
     // better, more recent grep
