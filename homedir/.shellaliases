@@ -11,6 +11,17 @@ alias gd='git diff'
 alias gp='git push origin HEAD'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
 
+
+#################################
+# K8s short commands
+alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias ke='kubectl exec -it $1 sh'
+
+alias kw='kubectl $1 $2 -o wide'
+alias ky='kubectl $1 $2 -o yaml'
+
 #############################
 # Paths
 alias c='cd ~/code'
@@ -98,8 +109,3 @@ alias td="todo.sh"
 alias tda="todo.sh add"
 alias tdl="todo.sh list"
 alias tdd="todo.sh do"
-
-alias k='kubectl'
-alias kp='kubectl get pods -o wide'
-alias kdp='kubectl describe pod'
-alias kdn='kubectl describe node'
