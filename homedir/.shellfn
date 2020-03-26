@@ -1,8 +1,38 @@
 #########################################
 # Utility Functions
 
+# Port forwarding to a service in K8s
+# Usage: kpf ms-mt--caronte 8000
+function kpf() {
+  kubectl port-forward service/$1 $2:80
+}
+
+# Perform a unique curl from inside a temporary pod
+# This is faster for quick curl tests
+# Usage: kcurl ms-mt--caronte /health
+function kcurl() {
+  kubectl run -i --tty --rm $(echo $USER | tr . -) --image=pstauffer/curl --restart=Never -- curl -i $1.$(kubectl config view --output 'jsonpath={..namespace}').schip.io$@[2,-1]
+}
+
+# Change namespace of the current context
+# Usage: kns <namespace>
+function kns() {
+  kubectl config set-context --current --namespace=es-$1
+}
+
+# Decrypts a kms value
+# Example: kms.decrypt pre "key"
 function kms.decrypt() {
   aws kms decrypt --profile=$1 --ciphertext-blob fileb://<(echo "$2" | base64 -D) --output text --query Plaintext | base64 -D
+}
+
+# Retrieves a service from eureka
+# Example: eureka url ms-mt--caronte
+function eureka() {
+  eureka_host=$1
+  service=$2
+
+  echo $(curl --silent -XGET "$eureka_host/eureka-server/v2/apps/$service" | grep "<ipAddr>" | shuf -n 1 | gsed -e "s/    <ipAddr>//" | gsed -e "s@</ipAddr>@@")
 }
 
 # Create a new git repo with one README commit and CD into it
