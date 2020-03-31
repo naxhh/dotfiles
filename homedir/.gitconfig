@@ -1,9 +1,9 @@
 [user]
-  name = Ignacio Tolstoy
-	email = ignacio.tolstoy@scmspain.com
+  name = GITHUBFULLNAME
+	email = GITHUBEMAIL
 [github]
   # https://github.com/blog/180-local-github-config
-  user = naxhh
+  user = GITHUBUSER
 [hub]
   host = github.schibsted.io
 [color]
