@@ -14,7 +14,14 @@ export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:$PATH"
 # Okta bin path
 export PATH=~/.okta/bin:$PATH
 
-# GO
+# GVM & GO
+
+export PATH=$PATH:~/.gvm/bin
+
+# This breaks the theme for some reason...
+# [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+# so we need to set the go version explicitly
+export PATH=$PATH:~/.gvm/gos/go1.13.9/bin/
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # The next line updates PATH for the Google Cloud SDK.
