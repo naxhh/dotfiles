@@ -1,10 +1,8 @@
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.dotfiles/oh-my-zsh
-
-# TODO: automate font installation
-POWERLEVEL9K_MODE='awesome-patched'
 export ZSH_THEME="powerlevel9k/powerlevel9k"
-# export ZSH_THEME="agnoster"
+
+POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
@@ -64,21 +62,11 @@ load-nvmrc
 # Customize to your needs...
 unsetopt correct
 
-# run fortune on new terminal :)
-# fortune
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/$(whoami)/.sdkman"
 [[ -s "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh"
 
-# Pyenv
-eval "$(pyenv init -)"
-
 # Direnv
 eval "$("/usr/local/bin/direnv" export zsh)";
-
-# This breaks the theme for some reason...
-#[[ -s "/Users/ignacio.tolstoy/.gvm/scripts/gvm" ]] && source "/Users/ignacio.tolstoy/.gvm/scripts/gvm"
 
 # https://github.com/jiansoung/issues-list/issues/13
 # For compilers to find zlib you may need to set:

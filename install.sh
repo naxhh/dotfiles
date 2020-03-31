@@ -251,9 +251,12 @@ else
   sdk selfupdate force
 fi
 
-bot "Installing Pyenv"
+bot "Add powerlevel9k theme tap"
 
-require_brew pyenv
+brew tap sambadevi/powerlevel9k
+require_brew powerlevel9k
+ln -s "$(brew --prefix powerlevel9k)" ~/.dotfiles/oh-my-zsh/themes/powerlevel9k
+ok
 
 #####################################
 # Now we can switch to node.js mode
