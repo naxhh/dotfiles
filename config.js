@@ -8,7 +8,6 @@ module.exports = {
     // alternative to `cat`: https://github.com/sharkdp/bat
     'bat',
     // Install GNU core utilities (those that come with macOS are outdated)
-    // Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
     'coreutils',
     'dos2unix',
     // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
@@ -18,10 +17,7 @@ module.exports = {
     'gawk',
     'gnupg',
     'gnu-sed',
-    // upgrade grep so we can get things like inverted match (-v)
-    'grep --with-default-names',
-    // better, more recent grep
-    'homebrew/dupes/grep',
+    'grep',
     // https://github.com/jkbrzt/httpie
     'httpie',
     'jq',
