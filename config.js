@@ -54,9 +54,6 @@ module.exports = {
     'flux',
     'gpg-suite',
     'iterm2',
-    'little-snitch',
-    'macbreakz',
-    'micro-snitch',
     'signal',
     'slack',
     'the-unarchiver',
@@ -73,6 +70,8 @@ module.exports = {
     'vtop'
   ],
   mas: [
-    'Amphetamine'
+    'Amphetamine',
+    'Alfred',
+    'Slack'
   ]
 };
