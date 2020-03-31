@@ -14,7 +14,7 @@ Try to automate new mac configuration as much as possible,
 ## Installation
 
 ```bash
-git clone --recurse-submodules https://github.com/atomantic/dotfiles ~/.dotfiles
+git clone --recurse-submodules https://github.com/naxhh/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles;
 # run this using terminal (not iTerm, lest iTerm settings get discarded on exit)
 ./install.sh
@@ -24,7 +24,7 @@ cd ~/.dotfiles;
 
 * When it finishes, open iTerm and press `Command + ,` to open preferences. Under Profiles > Colors, select "Load Presets" and choose the `Solarized Dark Patch` scheme. If it isn't there for some reason, import it from `~/.dotfiles/configs` -- you may also need to select the `Hack` font and check the box for non-ascii font and set to `Roboto Mono For Powerline` (I've had mixed results for automating these settings--love a pull request that improves this)
 
-* Install [alfred](https://www.alfredapp.com/)
+* Install RunCat
 * Install [spectacle](https://www.spectacleapp.com/)
 * Install [authy](https://authy.com/download/)
 
