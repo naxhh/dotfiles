@@ -28,7 +28,7 @@ cd ~/.dotfiles;
 * Install [spectacle](https://www.spectacleapp.com/)
 * Install [authy](https://authy.com/download/)
 * [Configure alfred](https://www.alfredapp.com/help/troubleshooting/cmd-space/)
-
+* Go to Keyboard > Shortucts > Keyboard and change the "Move focus to next window" to cmd+<
 
 ## Adevinta specifics
 
