@@ -30,14 +30,6 @@ cd ~/.dotfiles;
 * [Configure alfred](https://www.alfredapp.com/help/troubleshooting/cmd-space/)
 * Go to Keyboard > Shortucts > Keyboard and change the "Move focus to next window" to cmd+<
 
-## Adevinta specifics
+## TODO
 
-* Install [Jetbrains Toolbox](https://www.jetbrains.com/toolbox/)
-* Install viscosity
-* Install [royal tsx](https://www.royalapplications.com/ts/mac/download)
-* Install [google file stream](https://support.google.com/drive/answer/7329379)
-* Install KepassX (in drive)
-* Install and configure vpns (tunnelblick)
-* Configure Integra proxy
-* Configure gradle credentials
-* Install & configure okta cli
+Try to use `brew install font-source-code-pro-for-powerline` for fonts in the next run.
