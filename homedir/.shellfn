@@ -1,6 +1,26 @@
 #########################################
 # Utility Functions
 
+# Decode a base64 string
+function decode() {
+  echo -n "$1" | base64 -di 2> /dev/null
+}
+
+# Encode a base64 string
+function encode() {
+  echo -n "$1" | base64 2> /dev/null
+}
+
+# Convert timestamps to UTC
+function utc() {
+  date -d @$1 --utc
+}
+
+# Convert timestamps to CEST (Europe/Madrid)
+function cest() {
+  TZ=":Europe/Madrid" date -d @$1
+}
+
 # Port forwarding to a service in K8s
 # Usage: kpf ms-mt--caronte 8000
 function kpf() {
