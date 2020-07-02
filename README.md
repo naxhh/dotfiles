@@ -28,8 +28,5 @@ cd ~/.dotfiles;
 * Install [spectacle](https://www.spectacleapp.com/)
 * Install [authy](https://authy.com/download/)
 * [Configure alfred](https://www.alfredapp.com/help/troubleshooting/cmd-space/)
-* Go to Keyboard > Shortucts > Keyboard and change the "Move focus to next window" to cmd+<
-
-## TODO
-
-Try to use `brew install font-source-code-pro-for-powerline` for fonts in the next run.
+	* Go to Keyboard > Shortucts > Keyboard and change the "Move focus to next window" to cmd+<
+* Install [dropbox](https://www.dropbox.com/downloading) and configure to sync the private folder

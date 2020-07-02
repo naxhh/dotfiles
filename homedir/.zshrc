@@ -37,7 +37,6 @@ plugins=(
   compleat
   dirpersist
   autojump
-  git
   gulp
   history
   cp
