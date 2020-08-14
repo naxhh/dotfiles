@@ -16,10 +16,80 @@ function utc() {
   date -d @$1 --utc
 }
 
+function now() {
+  date +%s%3N
+}
+
 # Convert timestamps to CEST (Europe/Madrid)
 function cest() {
   TZ=":Europe/Madrid" date -d @$1
 }
+
+#########################################
+# Kafkacat Functions
+
+# Generic read command. kstg kread $TOPIC $OFFSET
+function kread() {
+  CLUSTER=$1
+  TOPIC=$2
+  OFFSET=$3
+  EXTRA_PARAMS=$@[4,-1]
+
+  kafkacat -C -b $CLUSTER -q -t $TOPIC -o "$OFFSET" $EXTRA_PARAMS
+}
+
+# Publish a message into a topic: kstg kpublish $TOPIC $KEY '$MESSAGE'
+function kpublish() {
+  CLUSTER=$1
+  TOPIC=$2
+  KEY=$3
+  MESSAGE=$4
+
+  echo "$KEY:$MESSAGE" | kafkacat -b $CLUSTER -P -t $TOPIC -K:
+}
+
+# Peek into a kafka topic starting from a given time
+function kpeek() {
+  CLUSTER=$1
+  TOPIC=$2
+  TIME=${3-now}
+  EXTRA_PARAMS=$@[4,-1]
+
+  kread $CLUSTER $TOPIC s@"$TIME" $EXTRA_PARAMS
+}
+
+function kfind() {
+  CLUSTER=$1
+  TOPIC=$2
+  TIME=${3-now}
+  KEY=$4
+  EXTRA_PARAMS=$@[5,-1]
+
+  kread $CLUSTER $TOPIC s@"$TIME" $EXTRA_PARAMS | ag $KEY
+}
+
+# Get a few messages from a kafka topic
+function ktop() {
+  CLUSTER=$1
+  TOPIC=$2
+  MESSAGES=${3-5}
+  EXTRA_PARAMS=$@[4,-1]
+
+  kread $CLUSTER $TOPIC "-$MESSAGES" -e $EXTRA_PARAMS
+}
+
+# Read topic from the start
+function kstart() {
+  CLUSTER=$1
+  TOPIC=$2
+  EXTRA_PARAMS=$@[3,-1]
+
+  kread $CLUSTER $TOPIC "beginning" -e $EXTRA_PARAMS
+}
+
+
+#########################################
+# Other Functions
 
 # Port forwarding to a service in K8s
 # Usage: kpf ms-mt--caronte 8000
