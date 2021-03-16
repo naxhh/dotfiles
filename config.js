@@ -47,7 +47,8 @@ module.exports = {
     'zlib',
     'sqlite',
     'direnv',
-    'redis'
+    'redis',
+    'kubectl'
   ],
   cask: [
     'docker',
