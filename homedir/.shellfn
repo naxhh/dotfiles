@@ -8,7 +8,7 @@ function decode() {
 
 # Encode a base64 string
 function encode() {
-  echo -n "$1" | base64 2> /dev/null
+  echo -n "$1" | base64 | tr '/+' '_-' | tr -d '=' 2> /dev/null
 }
 
 # Convert timestamps to UTC
@@ -16,8 +16,8 @@ function utc() {
   date -d @$1 --utc
 }
 
-function now() {
-  date +%s%3N
+function datems() {
+  date +%s%3N --utc --date "${1-"now"}"
 }
 
 # Convert timestamps to CEST (Europe/Madrid)
@@ -48,11 +48,20 @@ function kpublish() {
   echo "$KEY:$MESSAGE" | kafkacat -b $CLUSTER -P -t $TOPIC -K:
 }
 
+function kdelete() {
+  CLUSTER=$1
+  TOPIC=$2
+  KEY=$3
+
+  echo "$KEY:" | kafkacat -b $CLUSTER -P -t $TOPIC -Z -K:
+}
+
+
 # Peek into a kafka topic starting from a given time
 function kpeek() {
   CLUSTER=$1
   TOPIC=$2
-  TIME=${3-now}
+  TIME=${3-$(datems)}
   EXTRA_PARAMS=$@[4,-1]
 
   kread $CLUSTER $TOPIC s@"$TIME" $EXTRA_PARAMS
@@ -61,11 +70,11 @@ function kpeek() {
 function kfind() {
   CLUSTER=$1
   TOPIC=$2
-  TIME=${3-now}
+  TIME=${3-$(datems)}
   KEY=$4
   EXTRA_PARAMS=$@[5,-1]
 
-  kread $CLUSTER $TOPIC s@"$TIME" $EXTRA_PARAMS | ag $KEY
+  kread $CLUSTER $TOPIC s@"$TIME" $EXTRA_PARAMS -J | ag $KEY
 }
 
 # Get a few messages from a kafka topic
