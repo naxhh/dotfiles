@@ -18,6 +18,9 @@ export PATH=~/.okta/bin:$PATH
 
 export PATH=$PATH:~/.gvm/bin
 
+# Ruby
+export PATH="$(brew --prefix ruby)/bin/:$PATH"
+
 # This breaks the theme for some reason...
 # [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 # so we need to set the go version explicitly
