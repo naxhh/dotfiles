@@ -9,30 +9,8 @@ fi
 export ZSH=$HOME/.dotfiles/oh-my-zsh
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-# https://github.com/bhilburn/powerlevel9k#customizing-prompt-segments
-# https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status nvm virtualenv)
-
-# colorcode test
-# for code ({000..255}) print -P -- "$code: %F{$code}This is how your text would look like%f"
-POWERLEVEL9K_NVM_FOREGROUND='007'
-POWERLEVEL9K_NVM_BACKGROUND='072'
-POWERLEVEL9K_DIR_FOREGROUND='007'
-POWERLEVEL9K_DIR_BACKGROUND='007'
-
-POWERLEVEL9K_SHOW_CHANGESET=true
-#export ZSH_THEME="random"
-
 # Set to this to use case-sensitive completion
 export CASE_SENSITIVE="true"
-
-# disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
-
-# disable colors in ls
-# export DISABLE_LS_COLORS="true"
 
 # disable autosetting terminal title.
 export DISABLE_AUTO_TITLE="true"
