@@ -161,9 +161,11 @@ if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
   ok
 fi
 
-if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel9k" ]]; then
-  git clone https://github.com/bhilburn/powerlevel9k.git oh-my-zsh/custom/themes/powerlevel9k
+
+if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel10k" ]]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git oh-my-zsh/custom/themes/powerlevel10k
 fi
+
 
 bot "Dotfiles Setup"
 read -r -p "symlink ./homedir/* files in ~/ (these are the dotfiles)? [y|N] " response
@@ -251,12 +253,6 @@ else
   sdk selfupdate force
 fi
 
-bot "Add powerlevel9k theme tap"
-
-brew tap sambadevi/powerlevel9k
-require_brew powerlevel9k
-ln -s "$(brew --prefix powerlevel9k)" ~/.dotfiles/oh-my-zsh/themes/powerlevel9k
-ok
 
 #####################################
 # Now we can switch to node.js mode
