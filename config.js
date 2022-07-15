@@ -48,7 +48,8 @@ module.exports = {
     'sqlite',
     'direnv',
     'redis',
-    'kubectl'
+    'kubectl',
+    'argocd'
   ],
   cask: [
     'docker',

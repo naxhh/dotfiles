@@ -40,8 +40,11 @@
 [alias]
   # most commonly used
   cleanup = "!git branch --merged | grep -v '^*' | grep -v 'master' | xargs -n 1 git branch -d"
+  cleanupm = "!git branch --merged | grep -v '^*' | grep -v 'main' | xargs -n 1 git branch -d"
   update = !git checkout master && git pull origin master && git fetch -p && git cleanup
+  updatem = !git checkout main && git pull origin main && git fetch -p && git cleanupm
   upm = !git fetch upstream && git rebase upstream/master
+  upmm = !git fetch upstream && git rebase upstream/main
 
   # least used
   fixup = "!sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -"
