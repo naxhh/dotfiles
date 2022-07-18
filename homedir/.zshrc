@@ -30,8 +30,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/local/opt/nvm/nvm.sh
-
 autoload -U add-zsh-hook
 load-nvmrc() {
   if [[ -f .nvmrc && -r .nvmrc ]]; then
@@ -50,7 +48,7 @@ export SDKMAN_DIR="/Users/$(whoami)/.sdkman"
 [[ -s "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/$(whoami)/.sdkman/bin/sdkman-init.sh"
 
 # Direnv
-eval "$("/usr/local/bin/direnv" export zsh)";
+eval "$(direnv export zsh)";
 
 # https://github.com/jiansoung/issues-list/issues/13
 # For compilers to find zlib you may need to set:

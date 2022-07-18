@@ -9,6 +9,10 @@
 source ./lib_sh/echos.sh
 source ./lib_sh/requirers.sh
 
+# Retro compat
+bot "Adding zsh to local/bin to avoid errors"
+sudo ln -s /bin/zsh /usr/local/bin
+
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
 # Do we need to ask for sudo password or is it already passwordless?
@@ -111,6 +115,8 @@ brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
   action "installing homebrew"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  
   if [[ $? != 0 ]]; then
     error "unable to install homebrew, script $0 abort!"
     exit 2
@@ -138,9 +144,9 @@ running "checking brew-cask install"
 output=$(brew tap | grep cask)
 if [[ $? != 0 ]]; then
   action "installing brew-cask"
-  require_brew caskroom/cask/brew-cask
+  require_brew homebrew/cask/brew-cask
 fi
-brew tap caskroom/versions > /dev/null 2>&1
+brew tap homebrew/cask-versions > /dev/null 2>&1
 ok
 
 # skip those GUI clients, git command-line all the way

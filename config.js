@@ -49,7 +49,10 @@ module.exports = {
     'direnv',
     'redis',
     'kubectl',
-    'argocd'
+    'argocd',
+    // we don't want it but some fonts do...
+    'svn',
+    'rbenv'
   ],
   cask: [
     'docker',
@@ -72,8 +75,8 @@ module.exports = {
     'vtop'
   ],
   mas: [
-    'Amphetamine',
-    'Alfred',
-    'Slack'
+//    'Amphetamine',
+//    'Alfred',
+//    'Slack'
   ]
 };
