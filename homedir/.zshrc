@@ -1,7 +1,14 @@
 # As the standard terminal has issues displaying the ANSI characters correctly
 # we skip oh-my-posh for it.
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh)"
+  POSH_THEME="~/.dotfiles/homedir/posh-custom.json"
+  #POSH_THEME="https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/cloud-context.omp.json"
+  #POSH_THEME="https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/illusi0n.omp.json"
+  #POSH_THEME="https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/amro.omp.json"
+  #POSH_THEME="https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/bubblesextra.omp.json"
+
+  #POSH_THEME="https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/atomic.omp.json"
+  eval "$(oh-my-posh init zsh --config $POSH_THEME)"
 fi
 
 # Disable zsh autocorrect
