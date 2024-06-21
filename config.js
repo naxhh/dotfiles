@@ -1,58 +1,47 @@
 module.exports = {
   brew: [
-    // http://conqueringthecommandline.com/book/ack_ag
-    'ack',
+    'jandedobbeleer/oh-my-posh/oh-my-posh', // https://ohmyposh.dev/docs/installation/macos
+    'ack', // http://conqueringthecommandline.com/book/ack_ag
     'ag',
-    // https://github.com/wting/autojump
-    'autojump',
-    // alternative to `cat`: https://github.com/sharkdp/bat
-    'bat',
-    // Install GNU core utilities (those that come with macOS are outdated)
-    'coreutils',
+    'autojump', // https://github.com/wting/autojump
+    'bat', // alternative to `cat`: https://github.com/sharkdp/bat
+    'coreutils', // Install GNU core utilities (those that come with macOS are outdated)
     'dos2unix',
-    // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
-    'findutils',
+    'findutils', // Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
     'fzf',
     'readline', // ensure gawk gets good readline
     'gawk',
     'gnupg',
     'gnu-sed',
     'grep',
-    // https://github.com/jkbrzt/httpie
-    'httpie',
+    'httpie', // https://github.com/jkbrzt/httpie
     'jq',
     'kafkacat',
-    // Mac App Store CLI: https://github.com/mas-cli/mas
-    'mas',
-    // Install some other useful utilities like `sponge`
-    'moreutils',
+    'mas', // Mac App Store CLI: https://github.com/mas-cli/mas
+    'moreutils', // Install some other useful utilities like `sponge`
     'nmap',
     'openconnect',
     'reattach-to-user-namespace',
-    // better/more recent version of screen
-    'homebrew/dupes/screen',
+    'homebrew/dupes/screen', // better/more recent version of screen
     'tmux',
     'todo-txt',
     'tree',
     'ttyrec',
-    // better, more recent vim
-    'vim --with-client-server --with-override-system-vi',
+    'vim --with-client-server --with-override-system-vi', // better, more recent vim
     'watch',
-    // Install wget with IRI support
-    'wget --enable-iri',
-    // https://hub.github.com/
-    'hub',
+    'wget --enable-iri', // Install wget with IRI support
+    'hub', // https://hub.github.com/
     'awscli',
-    // In order to install python 3.6 we need this, (https://github.com/jiansoung/issues-list/issues/13)
-    'zlib',
-    'sqlite',
     'direnv',
     'redis',
     'kubectl',
     'argocd',
-    // we don't want it but some fonts do...
-    'svn',
-    'rbenv'
+    'svn', // we don't want it but some fonts do...
+    'rbenv',
+    // In order to install python 3.6 we need this, (https://github.com/jiansoung/issues-list/issues/13)
+    'zlib',
+    'sqlite'
+    // end python 3.6 requirements
   ],
   cask: [
     'docker',

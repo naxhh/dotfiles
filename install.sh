@@ -167,12 +167,6 @@ if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
   ok
 fi
 
-
-if [[ ! -d "./oh-my-zsh/custom/themes/powerlevel10k" ]]; then
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git oh-my-zsh/custom/themes/powerlevel10k
-fi
-
-
 bot "Dotfiles Setup"
 read -r -p "symlink ./homedir/* files in ~/ (these are the dotfiles)? [y|N] " response
 if [[ $response =~ (y|yes|Y) ]]; then
@@ -225,7 +219,10 @@ if [[ $response =~ (y|yes|Y) ]];then
   # need fontconfig to install/build fonts
   require_brew fontconfig
   ./fonts/install.sh
-  brew tap homebrew/cask-fonts
+
+  # Recommended for oh-my-posh
+  require_cask font-meslo-lg-nerd-font
+
   require_cask font-fontawesome
   require_cask font-awesome-terminal-fonts
   require_cask font-hack
@@ -238,27 +235,35 @@ if [[ $response =~ (y|yes|Y) ]];then
   ok
 fi
 
-bot "Installing NVM"
+read -r -p "Install NVM? [y|N] " response
+if [[ $response =~ (y|yes|Y) ]];then
+  bot "Installing NVM"
 
-require_brew nvm
-require_nvm stable
-# always pin versions (no surprises, consistent dev/build machines)
-npm config set save-exact true
-
-bot "Installing GVM"
-
-if ! [ -x "$(command -v gvm)" ]; then
-  curl -sSL https://raw.githubusercontent.com/markeissler/gvm2/master/binscripts/gvm-installer | zsh
+  require_brew nvm
+  require_nvm stable
+  # always pin versions (no surprises, consistent dev/build machines)
+  npm config set save-exact true
 fi
 
-bot "Installing or upgrading Sdkman"
+read -r -p "Install GVM? [y|N] " response
+if [[ $response =~ (y|yes|Y) ]];then
+  bot "Installing GVM"
 
-if ! [ -x "$(command -v sdk)" ]; then
-  curl -s "https://get.sdkman.io" | bash
-else
-  sdk selfupdate force
+  if ! [ -x "$(command -v gvm)" ]; then
+    curl -sSL https://raw.githubusercontent.com/markeissler/gvm2/master/binscripts/gvm-installer | zsh
+  fi
 fi
 
+read -r -p "Install or upgrade SDKMan? [y|N] " response
+if [[ $response =~ (y|yes|Y) ]];then
+  bot "Installing or upgrading Sdkman"
+
+  if ! [ -x "$(command -v sdk)" ]; then
+    curl -s "https://get.sdkman.io" | bash
+  else
+    sdk selfupdate force
+  fi
+fi
 
 #####################################
 # Now we can switch to node.js mode
@@ -773,8 +778,8 @@ defaults write com.apple.dock autohide-delay -float 0;ok
 running "Remove the animation when hiding/showing the Dock"
 defaults write com.apple.dock autohide-time-modifier -float 0;ok
 
-running "Automatically hide and show the Dock"
-defaults write com.apple.dock autohide -bool true;ok
+running "Dont hide the Dock"
+defaults write com.apple.dock autohide -bool false;ok
 
 running "Make Dock icons of hidden applications translucent"
 defaults write com.apple.dock showhidden -bool true;ok
