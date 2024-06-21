@@ -87,4 +87,7 @@ node_modules
 .envrc
 
 # ruby
-.rbenv-vars
+.rbenv-vars.testing
+
+# Test file or folder with private info
+.test

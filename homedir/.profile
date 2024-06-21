@@ -11,5 +11,6 @@ source ~/.shellfn
 source ~/.shellpaths
 source ~/.shellaliases
 source ~/.iterm2_shell_integration.`basename $SHELL`
+
 # Private/Proprietary stuff (not to be checked into the public repo) :)
-source ~/Dropbox/Private/.shellprivate
+source ~/Nextcloud/PrivateShell/.shellprivate

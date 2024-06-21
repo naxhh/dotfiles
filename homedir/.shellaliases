@@ -11,7 +11,6 @@ alias gd='git diff'
 alias gp='git push origin HEAD'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip-- [skip ci]"'
 
-
 #################################
 # K8s short commands
 alias k='kubectl'
@@ -28,6 +27,8 @@ alias c='cd ~/code'
 
 #############################
 # Utilities
+
+alias docs='open https://github.com/naxhh/reference-dir/blob/master/README.md'
 
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
