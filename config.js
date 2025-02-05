@@ -1,6 +1,8 @@
 module.exports = {
   brew: [
     'jandedobbeleer/oh-my-posh/oh-my-posh', // https://ohmyposh.dev/docs/installation/macos
+    'zsh-autosuggestions',
+    'zsh-syntax-highlighting',
     'ack', // http://conqueringthecommandline.com/book/ack_ag
     'ag',
     'autojump', // https://github.com/wting/autojump

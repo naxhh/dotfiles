@@ -1,3 +1,11 @@
+bindkey -e # Use emacs keymap
+
+source ~/.dotfiles/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# Autocomplete bindings
+bindkey '^I' autosuggest-accept # Make tab accept the suggestion
+
 # As the standard terminal has issues displaying the ANSI characters correctly
 # we skip oh-my-posh for it.
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
@@ -13,6 +21,10 @@ fi
 
 # Disable zsh autocorrect
 unsetopt correct
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if [[ -f .nvmrc && -r .nvmrc ]]; then
   nvm use &> /dev/null
