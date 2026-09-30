@@ -28,8 +28,8 @@
   "homepage": "https://github.com/atomantic/dotfiles#readme",
   "dependencies": {
     "async.series": "0.5.2",
-    "inquirer": "6.2.2",
+    "inquirer": "13.4.1",
     "node-emoji": "1.10.0",
-    "lodash": ">=4.17.21"
+    "lodash": ">=4.18.1"
   }
 }
