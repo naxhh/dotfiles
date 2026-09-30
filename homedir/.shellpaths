@@ -33,3 +33,5 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # The next line enables shell command completion for gcloud.
 #source "/Users/$(whoami)/Downloads/google-cloud-sdk/completion.zsh.inc"
 
+# Mostly for codegraph
+export PATH="/Users/itolstoy/.local/bin:$PATH"

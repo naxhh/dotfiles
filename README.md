@@ -34,7 +34,7 @@ cd ~/.dotfiles;
 * Install [authy](https://authy.com/download/)
 * [Configure alfred](https://www.alfredapp.com/help/troubleshooting/cmd-space/)
 	* Go to Keyboard > Shortucts > Keyboard and change the "Move focus to next window" to cmd+<
-* Install [NextCloud](https://nextcloud.com/install/) and configure to sync the notes & private cmd folders
+* Install [OpenCloud](https://opencloud.eu/en) and configure to sync the notes & private cmd folders
 * Install [obisidian](https://obsidian.md/download)
 
 * Install go `gvm install go1.4`

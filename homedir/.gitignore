@@ -76,8 +76,7 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directory
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+# Dependency directory for npm
 node_modules
 
 # Python
@@ -91,3 +90,11 @@ node_modules
 
 # Test file or folder with private info
 .test
+
+# Kotlin runtime files
+.kotlin
+
+# Claude configs
+.claude/*.local.json
+
+.codegraph

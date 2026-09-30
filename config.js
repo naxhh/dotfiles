@@ -46,7 +46,8 @@ module.exports = {
     // end python 3.6 requirements
   ],
   cask: [
-    'docker',
+// Not using for now
+//    'docker',
     'flux',
     'gpg-suite',
     'iterm2',

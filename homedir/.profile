@@ -13,4 +13,9 @@ source ~/.shellaliases
 source ~/.iterm2_shell_integration.`basename $SHELL`
 
 # Private/Proprietary stuff (not to be checked into the public repo) :)
-source ~/Nextcloud/PrivateShell/.shellprivate
+source ~/OpenCloud/Personal/PrivateShell/.shellprivate
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/itolstoy/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
