@@ -58,6 +58,3 @@ eval "$(rbenv init -)"
 #newrelic preflight
 export NR_AI_ENABLE_SUBAGENT_WATCHER=1
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/itolstoy/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

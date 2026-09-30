@@ -1,15 +1,20 @@
-#My Scripts
-export PATH=$PATH:.
-#export PATH=$PATH:~/.dotfiles/scripts
-
 #Brew
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
-# coreutils bin
-export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
-export PATH="$(brew --prefix grep)/libexec/gnubin:$PATH"
-export PATH="$(brew --prefix gnu-sed)/libexec/gnubin:$PATH"
+case "$(uname -s)" in
+  Darwin)
+    # Apple Silicon
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+    export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+    export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+    ;;
+  Linux)
+      # Linux or WSL native tools.
+      export PATH="/usr/local/go/bin:$PATH"
+    ;;
+esac
 
 # Okta bin path
 export PATH=~/.okta/bin:$PATH
@@ -17,9 +22,6 @@ export PATH=~/.okta/bin:$PATH
 # GVM & GO
 
 export PATH=$PATH:~/.gvm/bin
-
-# Ruby
-export PATH="$(brew --prefix ruby)/bin/:$PATH"
 
 # This breaks the theme for some reason...
 # [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
