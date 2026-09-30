@@ -261,3 +261,20 @@ function fo() {
   IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
 }
+
+function sublp() {
+  subl ~/OpenCloud/Personal/PrivateShell
+}
+
+function safe() {
+  safehouse \
+    --append-profile=$HOME/.dotfiles/homedir/safehouse-profile.sb \
+    --enable clipboard \
+    --enable=docker \
+    --env-pass TESTCONTAINERS_HOST_OVERRIDE,TESTCONTAINERS_RYUK_DISABLED,TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE,DOCKER_HOST,JAVA_HOME,SDKMAN_DIR,GITHUB_HOSTNAME,GITHUB_ENTERPRISE_HOSTNAME,NVM_BIN,HOMEBREW_PREFIX \
+    --add-dirs=~/code \
+    --add-dirs="/Library/Application Support/ClaudeCode/hooks/" \
+    --add-dirs=~/.newrelic-preflight \
+    --add-dirs-ro=~/ \
+    claude --dangerously-skip-permissions "$@";
+}

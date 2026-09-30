@@ -1,0 +1,12 @@
+;; This configuration is to restrict safehouse more.
+;; safehouse --append-profile=$HOME/.dotfiles/homedir/safehouse-profile.sb
+
+
+
+;; block dotenv files anywhere...
+(deny file-read* file-write*
+  (regex #"/\.env$" #"/\.env\.[^/]*$"))
+
+;; ...except example or template ones
+(allow file-read*
+  (regex #"/\.env\.(example|sample|template)$"))
